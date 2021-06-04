@@ -1,0 +1,25 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type TruckMain {
+  id: Int!
+  statusCode: Int!
+  statusDesc: String!
+  spsj: String
+}
+
+type TruckCar {
+  id: Int!
+  main: TruckMain!
+  plate: String!
+}
+
+input Plate {
+  plate: String!
+}
+
+type Query {
+  approvedCars: [TruckCar!]!
+  approved(input: Plate!): Boolean!
+}
